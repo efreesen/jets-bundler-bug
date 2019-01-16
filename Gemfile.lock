@@ -79,9 +79,6 @@ GEM
     crass (1.0.4)
     diff-lcs (1.3)
     dotenv (2.6.0)
-    dynomite (1.2.0)
-      activesupport
-      aws-sdk-dynamodb
     erubi (1.8.0)
     gems (1.1.1)
       json
@@ -179,7 +176,6 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capybara
-  dynomite
   jets
   launchy
   pg (~> 1.1.3)
@@ -188,4 +184,4 @@ DEPENDENCIES
   shotgun
 
 BUNDLED WITH
-   1.17.2
+   2.0.1
