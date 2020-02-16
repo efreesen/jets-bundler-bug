@@ -1,19 +1,21 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "jets"
+ruby '2.6.5'
 
-# Include pg gem if you are using ActiveRecord, remove if you are not
-gem "pg", "~> 1.1.3"
+gem 'rails'
+gem 'pg'
+gem 'puma'
+
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'shotgun'
-  gem 'rack'
+  gem 'pry-meta'
+  gem 'dotenv-rails'
 end
 
-group :test do
-  gem 'rspec' # rspec test group only or we get the "irb: warn: can't alias context from irb_context warning" when starting jets console
-  gem 'launchy'
-  gem 'capybara'
+group :development do
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 end

@@ -1,22 +1,25 @@
 default: &default
   adapter: postgresql
-  encoding: utf8
+  encondig: 'unicode'
   pool: <%= ENV["DB_POOL"] || 5  %>
-  database: <%= ENV['DB_NAME'] || 'jets-bundler-bug_development' %>
+  database: shortener
   username: <%= ENV['DB_USER'] || ENV['USER'] %>
-  password: <%= ENV['DB_PASS'] %>
   host: <%= ENV["DB_HOST"] %>
-  url: <%= ENV['DATABASE_URL'] %> # takes higher precedence than other settings
+  port: <%= ENV["DB_PORT"] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 10 }.to_i * 2 %>
 
 development:
   <<: *default
-  database: <%= ENV['DB_NAME'] || 'jets-bundler-bug_development' %>
+  database: shortener_development
 
 test:
   <<: *default
-  database: jets-bundler-bug_test
+  database: shortener_test
+
+staging:
+  <<: *default
+  password: <%= ENV['DATABASE_URL'] %>
 
 production:
   <<: *default
-  database: jets-bundler-bug_production
-  url: <%= ENV['DATABASE_URL'] %>
+  password: <%= ENV['DATABASE_URL'] %>

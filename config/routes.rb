@@ -1,5 +1,5 @@
-Jets.application.routes.draw do
-  get 'api', to: 'api#index'
-
-  root "api#index"
+Rails.application.routes.draw do
+  get ":url_id", to: "redirects#index"
+  post "shorten", to: "shorten#create"
+  post "batch", to: "batch#create"
 end

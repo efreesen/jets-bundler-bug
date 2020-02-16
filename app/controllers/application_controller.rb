@@ -1,2 +1,2 @@
-class ApplicationController < Jets::Controller::Base
+class ApplicationController < ActionController::API
 end
